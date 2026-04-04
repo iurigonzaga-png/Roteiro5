@@ -9,12 +9,25 @@ using System;
        string jmensal = Console.ReadLine();
         Console.WriteLine("informe quantos meses ficara investido");
        string minv = Console.ReadLine();
+        Console.WriteLine("Informe qual é a sua meta de lucro em R$:");
+        string inputMeta = Console.ReadLine();
         double capitalInicial = Convert.ToDouble(cinicial);
-        double juros = Convert.ToDouble(jmensal);
+        double juros = Convert.ToDouble(jmensal) / 100;
         double meses = Convert.ToDouble(minv);
-
+        double meta = Convert.ToDouble(inputMeta);
         double montante = capitalInicial * Math.Pow(1 + juros, meses);
         double lucro = montante - capitalInicial;
         double lucroArredondado = Math.Round(lucro, 2);
 
+        Console.WriteLine($"Montante final: R$ {Math.Round(montante, 2)}");
+        Console.WriteLine($"Lucro obtido: R$ {lucroArredondado}");
+
+        if (lucroArredondado >= meta)
+        {
+            Console.WriteLine("Parabéns! Você atingiu sua meta de lucro.");
+        }
+        else
+        {
+            Console.WriteLine("Infelizmente, você não atingiu sua meta de lucro.");
+        }
     } }
